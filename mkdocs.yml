@@ -32,6 +32,7 @@ nav:
     - "08 — Qualidade e CI/CD": 08/PT/indice.md
     - "09 — Gestão": 09/PT/indice.md
     - "10 — Templates": 10/PT/indice.md
+    - "11 — Segurança (OWASP)": 11/PT/indice.md
   - "Modules (EN)":
     - "01 — Overview": 01/EN/index.md
     - "02 — Fundamentals": 02/EN/index.md
@@ -43,7 +44,8 @@ nav:
     - "08 — Quality & CI/CD": 08/EN/index.md
     - "09 — Management": 09/EN/index.md
     - "10 — Templates": 10/EN/index.md
-markdown_extensions:
+    - "11 — Security (OWASP)": 11/EN/index.md
+  markdown_extensions:
   - admonition
   - pymdownx.superfences
   - pymdownx.tabbed
