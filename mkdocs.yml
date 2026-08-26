@@ -19,6 +19,11 @@ theme:
     - content.code.copy
 repo_url: https://github.com/Marquezbertin/manual-qa-completo
 docs_dir: .
+exclude_docs: |
+  scripts/.*$
+  tests/.*$
+  \.github/.*$
+site_dir: site
 nav:
   - Home: index.md
   - "Módulos (PT)":
