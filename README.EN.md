@@ -148,4 +148,8 @@ This project is licensed under the **MIT** license. See the [LICENSE](LICENSE) f
 
 ---
 
+🌐 **Site:** this manual is also published as a navigable static site via GitHub Pages (see `mkdocs.yml` and the `docs.yml` workflow).
+
+---
+
 **Developed by Bruno Bertin Marquez — QA Analyst, ASTFC-AICS and SCRUM certified.**

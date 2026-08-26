@@ -12,6 +12,9 @@ allure-results/
 test-results/
 .har
 
+# MkDocs build output
+site/
+
 # OS / editor
 .DS_Store
 Thumbs.db

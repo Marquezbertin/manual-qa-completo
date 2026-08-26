@@ -148,4 +148,8 @@ Este projeto está licenciado sob a licença **MIT**. Veja o arquivo [LICENSE](L
 
 ---
 
+🌐 **Site:** este manual também é publicado como site estático navegável via GitHub Pages (veja `mkdocs.yml` e o workflow `docs.yml`).
+
+---
+
 **Desenvolvido por Bruno Bertin Marquez — Analista de QA, certificações ASTFC-AICS e SCRUM.**
