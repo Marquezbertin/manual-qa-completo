@@ -164,3 +164,23 @@
   color: var(--md-accent-fg-color);
   font-weight: 600;
 }
+
+/* ---- Module badges (cards) ---- */
+.md-typeset .grid.cards span.badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.4;
+  padding: 0.1rem 0.55rem;
+  margin: 0.15rem 0.25rem 0.15rem 0;
+  border-radius: 999px;
+  background: rgba(0, 184, 212, 0.16);
+  color: #00838f;
+  border: 1px solid rgba(0, 184, 212, 0.4);
+  white-space: nowrap;
+}
+[data-md-color-scheme="slate"] .md-typeset .grid.cards span.badge {
+  background: rgba(0, 184, 212, 0.22);
+  color: #4dd0e1;
+  border-color: rgba(77, 208, 225, 0.5);
+}
