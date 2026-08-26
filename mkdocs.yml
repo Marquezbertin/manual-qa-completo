@@ -50,7 +50,7 @@ nav:
     - "09 — Management": 09/EN/index.md
     - "10 — Templates": 10/EN/index.md
     - "11 — Security (OWASP)": 11/EN/index.md
-  markdown_extensions:
+markdown_extensions:
   - admonition
   - pymdownx.superfences
   - pymdownx.tabbed
