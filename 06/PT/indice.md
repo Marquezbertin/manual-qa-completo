@@ -19,38 +19,67 @@ APIs são a "cola" entre sistemas. Testes de API:
 
 Classes: 2xx sucesso, 3xx redirecionamento, 4xx erro do cliente, 5xx erro do servidor.
 
-## 6.3 Exemplo Real: Testando uma API REST (Requests + Pytest)
+## 6.3 Exemplo Real e Executável (Requests + Pytest)
 
-Arquivo: `06/scripts/test_api.py`
+Os scripts deste módulo são **rodáveis offline** (sem rede externa). Estrutura em `06/scripts/`:
 
-```python
-import requests
-import pytest
-
-BASE = "https://jsonplaceholder.typicode.com"
-
-def test_get_post():
-    r = requests.get(f"{BASE}/posts/1")
-    assert r.status_code == 200
-    body = r.json()
-    assert body["id"] == 1
-    assert "title" in body
-
-def test_create_post():
-    payload = {"title": "QA", "body": "teste", "userId": 1}
-    r = requests.post(f"{BASE}/posts", json=payload)
-    assert r.status_code == 201
-    assert r.json()["id"] is not None
-
-def test_not_found():
-    r = requests.get(f"{BASE}/posts/999999")
-    assert r.status_code == 404
+```
+06/scripts/
+├── app.py          # mini API REST (stdlib, sobe em porta livre)
+├── conftest.py     # fixture base_url (sobe a API)
+└── test_api.py     # testes de status + schema
 ```
 
-## 6.4 Validação de Schema (Pydantic)
+Pré-requisitos e execução:
+```bash
+cd 06/scripts
+pip install requests jsonschema
+pytest            # 3 testes passam
+```
 
+Trecho de `test_api.py`:
 ```python
-from pydantic import BaseModel, ValidationError
+import requests
+from jsonschema import validate
+
+POST_SCHEMA = {
+    "type": "object",
+    "required": ["userId", "id", "title", "body"],
+    "properties": {
+        "userId": {"type": "integer"},
+        "id": {"type": "integer"},
+        "title": {"type": "string"},
+        "body": {"type": "string"},
+    },
+}
+
+def test_get_post(base_url):
+    r = requests.get(f"{base_url}/posts/1")
+    assert r.status_code == 200
+    validate(instance=r.json(), schema=POST_SCHEMA)
+```
+
+### Exemplo com API pública real
+Para testar uma API externa de verdade, troque `base_url` por:
+```python
+BASE = "https://jsonplaceholder.typicode.com"
+# requests.get(f"{BASE}/posts/1")  # requer internet
+```
+> Use APIs públicas (jsonplaceholder, reqres.in) para praticar, mas prefira a suíte local para CI determinístico.
+
+## 6.4 Validação de Schema (contrato)
+
+Validar o **contrato** impede que mudanças quebrem os consumidores.
+
+**Com jsonschema** (usado na suíte local):
+```python
+from jsonschema import validate
+validate(instance=resposta_json, schema=POST_SCHEMA)
+```
+
+**Com Pydantic** (alternativa popular):
+```python
+from pydantic import BaseModel
 
 class Post(BaseModel):
     userId: int
@@ -58,10 +87,7 @@ class Post(BaseModel):
     title: str
     body: str
 
-def test_schema():
-    r = requests.get(f"{BASE}/posts/1").json()
-    post = Post(**r)  # levanta erro se faltar campo
-    assert post.userId > 0
+post = Post(**resposta_json)  # erro se faltar campo/tipo
 ```
 
 ## 6.5 Autenticação e Tokens
