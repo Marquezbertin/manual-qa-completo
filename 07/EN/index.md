@@ -16,6 +16,15 @@ Key metrics:
 - **Error rate** (% of failures)
 - **Concurrency** (simultaneous users)
 
+```mermaid
+flowchart TD
+  VUs[Virtual Users] --> REQ[Requests]
+  REQ --> M[Metrics]
+  M --> T[Throughput req/s]
+  M --> R[Response time p95/p99]
+  M --> E[Error rate %]
+```
+
 ## 7.2 Tools
 
 - **Locust** (Python, code-as-test)
@@ -74,7 +83,27 @@ export default function () {
 
 Execution: `k6 run script.js`
 
-## 7.5 Result Analysis
+> The Locust/k6 examples need those tools installed. To test **offline**, use `07/scripts/target_server.py` (stdlib server) as the target:
+> ```bash
+> python 07/scripts/target_server.py &   # serves on :8080
+> locust -f 07/scripts/locustfile.py --headless -u 50 -r 5 -t 30s -H http://127.0.0.1:8080
+> ```
+
+## 7.5 Understanding and Computing Percentiles (p95/p99)
+
+Percentiles mean: "95% of requests were faster than X". Unlike the average, they **don't hide the long tail**.
+
+Example with 10 response times (ms): `100, 120, 130, 140, 150, 160, 170, 180, 190, 1000`
+- Average = 234 ms (skewed by the outlier)
+- **p95 = 1000 ms** (the worst case dominates) → investigate the tail
+
+The script `07/scripts/percentile.py` computes this reproducibly:
+```python
+times = [100,120,130,140,150,160,170,180,190,1000]
+percentile(times, 95)   # 1000.0  (nearest-rank)
+```
+
+## 7.6 Result Analysis
 
 When reviewing results, look for:
 - **High p95/p99** → bottleneck (DB, network, code)
@@ -82,7 +111,7 @@ When reviewing results, look for:
 - **Stagnant throughput** → system limit
 - **Rising memory** (endurance) → memory leak
 
-## 7.6 Best Practices
+## 7.7 Best Practices
 
 - Performance environment **isolated and dedicated**
 - **Realistic** test data (volume close to production)
@@ -90,7 +119,7 @@ When reviewing results, look for:
 - Document **baseline** for comparison
 - Define **SLA** upfront (e.g., p95 < 800ms)
 
-## 7.7 Citations and References
+## 7.8 Citations and References
 
 - **JMeter User Manual** — https://jmeter.apache.org/usermanual/
 - **k6 Docs** — https://k6.io/docs/
@@ -99,7 +128,7 @@ When reviewing results, look for:
 
 ---
 
-## 7.8 Next Steps
+## 7.9 Next Steps
 
 At the end of this module, the reader should be able to:
 1. Differentiate load, stress, spike, endurance
@@ -110,4 +139,4 @@ At the end of this module, the reader should be able to:
 
 ---
 
-> **Next module**: [Module 08: Code Quality and CI/CD](08/PT/indice.md)
+> **Next module**: [Module 08: Code Quality and CI/CD](08/EN/index.md)

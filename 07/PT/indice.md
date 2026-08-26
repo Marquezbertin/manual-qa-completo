@@ -16,6 +16,15 @@ Métricas-chave:
 - **Error rate** (% de falhas)
 - **Concurrency** (usuários simultâneos)
 
+```mermaid
+flowchart TD
+  VUs[Usuários Virtuais] --> REQ[Requests]
+  REQ --> M[Metricas]
+  M --> T[Throughput req/s]
+  M --> R[Response time p95/p99]
+  M --> E[Error rate %]
+```
+
 ## 7.2 Ferramentas
 
 - **Locust** (Python, código como teste)
@@ -74,7 +83,27 @@ export default function () {
 
 Execução: `k6 run script.js`
 
-## 7.5 Análise de Resultados
+> Os exemplos de Locust/k6 precisam das ferramentas instaladas. Para testar **offline**, use `07/scripts/target_server.py` (servidor stdlib) como alvo:
+> ```bash
+> python 07/scripts/target_server.py &   # sobe em :8080
+> locust -f 07/scripts/locustfile.py --headless -u 50 -r 5 -t 30s -H http://127.0.0.1:8080
+> ```
+
+## 7.5 Entendendo e Calculando Percentis (p95/p99)
+
+Percentis dizem: "95% das requisições foram mais rápidas que X". Diferente da média, **não escondem cauda longa**.
+
+Exemplo com 10 tempos (ms): `100, 120, 130, 140, 150, 160, 170, 180, 190, 1000`
+- Média = 234 ms (distorcida pelo outlier)
+- **p95 = 1000 ms** (o pior caso domina) → investigar a cauda
+
+O script `07/scripts/percentile.py` calcula isso de forma reproduzível:
+```python
+tempos = [100,120,130,140,150,160,170,180,190,1000]
+percentile(tempos, 95)   # 1000.0  (nearest-rank)
+```
+
+## 7.6 Análise de Resultados
 
 Ao receber os resultados, procure:
 - **p95/p99 alto** → gargalo (DB, rede, código)
@@ -82,7 +111,7 @@ Ao receber os resultados, procure:
 - **Throughput estagnado** → limite do sistema
 - **Memória subindo** (endurance) → memory leak
 
-## 7.6 Boas Práticas
+## 7.7 Boas Práticas
 
 - Ambiente de performance **isolado e dedicado**
 - Dados de teste **realistas** (volume próximo de produção)
@@ -90,7 +119,7 @@ Ao receber os resultados, procure:
 - Documente **baseline** (linha de base) para comparação
 - Defina **SLA** antes (ex: p95 < 800ms)
 
-## 7.7 Citações e Referências
+## 7.8 Citações e Referências
 
 - **JMeter User Manual** — https://jmeter.apache.org/usermanual/
 - **k6 Docs** — https://k6.io/docs/
@@ -99,7 +128,7 @@ Ao receber os resultados, procure:
 
 ---
 
-## 7.8 Próximos Passos
+## 7.9 Próximos Passos
 
 Ao final deste módulo, o leitor deverá:
 1. Diferenciar carga, estresse, pico, endurance
@@ -110,4 +139,4 @@ Ao final deste módulo, o leitor deverá:
 
 ---
 
-> **Próximo módulo**: [Módulo 08: Qualidade de Código e CI/CD](08/PT/indice.md)
+> **Próximo módulo**: [Módulo 08: Qualidade de Código e CI/CD](08/EN/index.md)
