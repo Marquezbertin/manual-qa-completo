@@ -13,6 +13,7 @@ This module gathers **ready-to-use artifacts** for real QA projects.
 | `10/EN/acceptance_checklist.md` | Acceptance Checklist |
 | `10/EN/traceability_matrix.md` | Traceability Matrix |
 | `10/EN/glossary.md` | PT/EN Glossary |
+| `10/EN/solutions.md` | Solutions guide (self-assessment) |
 
 ## 10.2 How to Use
 

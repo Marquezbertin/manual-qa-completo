@@ -13,6 +13,7 @@ Este módulo reúne **artefatos prontos para uso** em projetos reais de QA.
 | `10/PT/checklist_aceite.md` | Checklist de Homologação |
 | `10/PT/matriz_rastreabilidade.md` | Matriz de Rastreabilidade |
 | `10/PT/glossario.md` | Glossário PT/EN |
+| `10/PT/solucoes.md` | Guia de soluções (autoavaliação) |
 
 ## 10.2 Como usar
 
