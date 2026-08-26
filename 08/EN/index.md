@@ -47,6 +47,21 @@ jobs:
       - run: pytest --cov=src --cov-fail-under=80
 ```
 
+### 8.3.1 Pipeline Diagram
+
+```mermaid
+flowchart LR
+    C[Commit / PR] --> L[Lint: ruff]
+    L --> T[Tests: pytest]
+    T --> CV[Coverage: >=80%]
+    CV --> S[SAST: bandit]
+    S --> D[Build / Deploy]
+    L -. fail .-> X[Blocking]
+    T -. fail .-> X
+    CV -. fail .-> X
+    S -. fail .-> X
+```
+
 ## 8.4 Quality Gates
 
 | Gate | Rule | Fails if |
@@ -55,6 +70,20 @@ jobs:
 | Coverage | ≥ 80% | below threshold |
 | Security | 0 high | bandit finds vuln |
 | Tests | 100% pass | any failure |
+
+### 8.4.1 Reproducible gate (script)
+
+Instead of checking manually, automate the decision. The script `08/scripts/quality_gate.py` implements the logic:
+```python
+def evaluate(lint_errors, coverage_pct, high_vulns, threshold=80):
+    r = {
+        "lint": "PASS" if lint_errors == 0 else "FAIL",
+        "coverage": "PASS" if coverage_pct >= threshold else "FAIL",
+        "security": "PASS" if high_vulns == 0 else "FAIL",
+    }
+    r["overall"] = "PASS" if all(v == "PASS" for v in r.values()) else "FAIL"
+    return r
+```
 
 ## 8.5 Shift-Left and Culture
 
@@ -98,4 +127,4 @@ At the end of this module, the reader should be able to:
 
 ---
 
-> **Next module**: [Module 09: Quality Management and Processes](09/PT/indice.md)
+> **Next module**: [Module 09: Quality Management and Processes](09/EN/index.md)

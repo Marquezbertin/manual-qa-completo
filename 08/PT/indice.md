@@ -47,6 +47,21 @@ jobs:
       - run: pytest --cov=src --cov-fail-under=80
 ```
 
+### 8.3.1 Diagrama do Pipeline
+
+```mermaid
+flowchart LR
+    C[Commit / PR] --> L[Lint: ruff]
+    L --> T[Testes: pytest]
+    T --> CV[Cobertura: >=80%]
+    CV --> S[SAST: bandit]
+    S --> D[Build / Deploy]
+    L -. falha .-> X[Blocking]
+    T -. falha .-> X
+    CV -. falha .-> X
+    S -. falha .-> X
+```
+
 ## 8.4 Quality Gates (Portões de Qualidade)
 
 | Gate | Regra | Falha se |
@@ -55,6 +70,20 @@ jobs:
 | Coverage | ≥ 80% | abaixo do limite |
 | Security | 0 high | bandit acha vulnerabilidade |
 | Tests | 100% pass | qualquer falha |
+
+### 8.4.1 Gate reproduzível (script)
+
+Em vez de checar manualmente, automatize a decisão. O script `08/scripts/quality_gate.py` implementa a lógica:
+```python
+def evaluate(lint_errors, coverage_pct, high_vulns, threshold=80):
+    r = {
+        "lint": "PASS" if lint_errors == 0 else "FAIL",
+        "coverage": "PASS" if coverage_pct >= threshold else "FAIL",
+        "security": "PASS" if high_vulns == 0 else "FAIL",
+    }
+    r["overall"] = "PASS" if all(v == "PASS" for v in r.values()) else "FAIL"
+    return r
+```
 
 ## 8.5 Shift-Left e Cultura
 
@@ -98,4 +127,4 @@ Ao final deste módulo, o leitor deverá:
 
 ---
 
-> **Próximo módulo**: [Módulo 09: Gestão de Qualidade e Processos](09/PT/indice.md)
+> **Próximo módulo**: [Módulo 09: Gestão de Qualidade e Processos](09/EN/index.md)
