@@ -118,6 +118,12 @@ pytest
 ### 4. CI (GitHub Actions)
 The pipeline in `.github/workflows/ci.yml` runs automatically on every push/PR, executing the root tests and validating the manual's integrity.
 
+### Shortcut
+```bash
+make all            # runs standalone scripts + mermaid check + M06 suite
+python run_all.py   # Python equivalent (--suites to include M05/M06)
+```
+
 ---
 
 ## 🧰 Technologies
