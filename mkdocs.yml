@@ -77,6 +77,7 @@ nav:
     - "11 — Security (OWASP)": 11/EN/index.md
 markdown_extensions:
   - admonition
+  - md_in_html
   - pymdownx.details
   - pymdownx.mark
   - pymdownx.superfences
