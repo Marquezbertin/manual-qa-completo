@@ -23,6 +23,14 @@ Nível de projeto/feature: detalha o QUE será testado, COMO, POR QUEM, QUANDO e
 | Frequência | Estável | Por iteração |
 | Detalhe | Genérico | Específico |
 
+```mermaid
+flowchart TD
+    POL[Test Policy<br/>compromisso da org com qualidade]
+    STR[Test Strategy<br/>abordagem genérica por programa]
+    PLN[Test Plan<br/>detalhe por release/feature]
+    POL --> STR --> PLN
+```
+
 ## 3.3 Entradas e Saídas do Planejamento (ISTQB)
 
 **Entradas**:
@@ -50,6 +58,25 @@ Exemplo 3 pontos para uma feature:
 ```
 Ot = 3d, Rl = 5d, Ps = 10d
 Estimativa = (3 + 4×5 + 10) / 6 = 5,5 dias
+```
+
+### 3.4.1 Exemplo trabalhado (várias features)
+
+| Feature | Ot (d) | Rl (d) | Ps (d) | PERT (d) |
+|---------|--------|--------|--------|----------|
+| Login | 1 | 2 | 4 | 2,17 |
+| Checkout | 3 | 5 | 10 | 5,50 |
+| Relatórios | 2 | 4 | 9 | 4,50 |
+| **Total** | | | | **12,17** |
+
+O script `03/scripts/estimate.py` calcula isso de forma reproduzível:
+```python
+def pert(o, r, p):
+    return (o + 4 * r + p) / 6
+
+features = {"Login": (1, 2, 4), "Checkout": (3, 5, 10), "Relatórios": (2, 4, 9)}
+total = sum(pert(*v) for v in features.values())
+print(f"Total PERT: {total:.2f} dias")  # 11.83
 ```
 
 ## 3.5 Ambientes de Teste
@@ -118,6 +145,22 @@ print(fake.cpf(), fake.name(), fake.email())
 9. **Aprovações**
 
 > Template completo disponível em `10/PT/test_plan_template.md`.
+
+### 3.9.1 Mini Test Plan (exemplo concreto)
+
+| Seção | Conteúdo (Release 2.3 — Checkout) |
+|-------|-----------------------------------|
+| Objetivo | Validar novo fluxo de pagamento PIX |
+| Escopo | Tela de checkout, integração com gateway, e-mail de confirmação |
+| Fora de escopo | Relatórios financeiros (outro squad) |
+| Abordagem | API (90%) + E2E crítico (10%) |
+| Ambiente | Staging v2.3, dados Faker anonimizados |
+| Cronograma | 05/set a 09/set — QA: Ana |
+| Riscos | Gateway instável → mitigação: mock |
+| Entrada | Build 2.3 OK, env pronto |
+| Saída | 100% executados, ≥95% pass, 0 crítico, cov ≥80% |
+
+> Note como "Saída" usa números mensuráveis — critério de saída deve ser objetivo.
 
 ## 3.10 Citações e Referências
 
