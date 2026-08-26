@@ -1,4 +1,4 @@
-# Test Plan Template
+﻿# Test Plan Template
 
 ```
 1. INTRODUCTION

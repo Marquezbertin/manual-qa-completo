@@ -1,4 +1,4 @@
-# PT/EN Glossary
+﻿# PT/EN Glossary
 
 | PT | EN | Definition |
 |----|----|------------|

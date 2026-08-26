@@ -213,3 +213,15 @@
   color: var(--md-primary-fg-color);
   opacity: 1;
 }
+
+/* ---- "example" admonition (highlights runnable scripts) ---- */
+.md-typeset .admonition.example {
+  border-left-color: #26a69a;
+}
+.md-typeset .admonition.example > .admonition-title {
+  background-color: rgba(38, 166, 154, 0.1);
+  color: #00796b;
+}
+.md-typeset .admonition.example > .admonition-title::before {
+  background-color: #26a69a;
+}

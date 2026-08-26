@@ -73,7 +73,8 @@ flowchart LR
 
 ### 8.4.1 Gate reproduzível (script)
 
-Em vez de checar manualmente, automatize a decisão. O script `docs/08/scripts/quality_gate.py` implementa a lógica:
+!!! example "Quality Gate automatizado"
+    Em vez de checar manualmente, automatize a decisão. O script `docs/08/scripts/quality_gate.py` implementa a lógica:
 ```python
 def evaluate(lint_errors, coverage_pct, high_vulns, threshold=80):
     r = {

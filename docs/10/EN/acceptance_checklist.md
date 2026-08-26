@@ -1,4 +1,4 @@
-# Acceptance Checklist
+﻿# Acceptance Checklist
 
 ```
 FUNCTIONALITY

@@ -97,7 +97,8 @@ Example with 10 response times (ms): `100, 120, 130, 140, 150, 160, 170, 180, 19
 - Average = 234 ms (skewed by the outlier)
 - **p95 = 1000 ms** (the worst case dominates) → investigate the tail
 
-The script `docs/07/scripts/percentile.py` computes this reproducibly:
+!!! example "Reproducible script"
+    The script \$(System.Collections.Hashtable[1])\ computes this reproducibly.
 ```python
 times = [100,120,130,140,150,160,170,180,190,1000]
 percentile(times, 95)   # 1000.0  (nearest-rank)

@@ -1,4 +1,4 @@
-# Manual Completo de QA
+﻿# Manual Completo de QA
 
 <div class="hero">
   <h1>Manual Completo de QA</h1>

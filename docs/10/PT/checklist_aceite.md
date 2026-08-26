@@ -1,4 +1,4 @@
-# Checklist de Homologação
+﻿# Checklist de Homologação
 
 ```
 FUNCIONALIDADE

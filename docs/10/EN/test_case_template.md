@@ -1,4 +1,4 @@
-# Test Case Template
+﻿# Test Case Template
 
 ```
 ID: [TC-MOD-001]

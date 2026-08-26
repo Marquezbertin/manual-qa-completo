@@ -1,4 +1,4 @@
-# Soluções e Guia de Aprendizagem (PT)
+﻿# Soluções e Guia de Aprendizagem (PT)
 
 Respostas-resumo dos objetivos de **"Próximos Passos"** de cada módulo. Use para autoavaliar o domínio do conteúdo.
 

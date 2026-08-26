@@ -69,7 +69,8 @@ Estimativa = (3 + 4×5 + 10) / 6 = 5,5 dias
 | Relatórios | 2 | 4 | 9 | 4,50 |
 | **Total** | | | | **12,17** |
 
-O script `docs/03/scripts/estimate.py` calcula isso de forma reproduzível:
+!!! example "Script reproduzível"
+    O script \$(System.Collections.Hashtable[1])\ calcula isso de forma reproduzível.
 ```python
 def pert(o, r, p):
     return (o + 4 * r + p) / 6

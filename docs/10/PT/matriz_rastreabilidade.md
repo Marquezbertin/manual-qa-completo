@@ -1,4 +1,4 @@
-# Matriz de Rastreabilidade
+﻿# Matriz de Rastreabilidade
 
 Relaciona requisitos → casos de teste → resultado.
 

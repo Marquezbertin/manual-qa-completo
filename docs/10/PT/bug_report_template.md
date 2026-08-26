@@ -1,4 +1,4 @@
-# Bug Report Template
+﻿# Bug Report Template
 
 ```
 ID: [BUG-XXXX]

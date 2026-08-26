@@ -33,19 +33,20 @@ Lista das 10 vulnerabilidades web mais críticas:
 
 ## 11.4 Exemplo Executável: Secret Scanner
 
-O script `docs/11/scripts/secret_scan.py` detecta segredos óbvios (chaves AWS, chaves privadas, senhas) via regex — sem dependências:
+!!! example "Secret Scanner (executável)"
+    O script `docs/11/scripts/secret_scan.py` detecta segredos óbvios (chaves AWS, chaves privadas, senhas) via regex — sem dependências:
 
-```python
-import re
-PATTERNS = {
-    "AWS_KEY": re.compile(r"AKIA[0-9A-Z]{16}"),
-    "PRIVATE_KEY": re.compile(r"-----BEGIN .*PRIVATE KEY-----"),
-    "PASSWORD": re.compile(r"password\s*=\s*['\"]?[^\s'\"]{6,}"),
-}
-def scan(text):
-    return [(n, m.group(0)[:20]) for n, p in PATTERNS.items()
-            for m in p.finditer(text)]
-```
+    ```python
+    import re
+    PATTERNS = {
+        "AWS_KEY": re.compile(r"AKIA[0-9A-Z]{16}"),
+        "PRIVATE_KEY": re.compile(r"-----BEGIN .*PRIVATE KEY-----"),
+        "PASSWORD": re.compile(r"password\s*=\s*['\"]?[^\s'\"]{6,}"),
+    }
+    def scan(text):
+        return [(n, m.group(0)[:20]) for n, p in PATTERNS.items()
+                for m in p.finditer(text)]
+    ```
 
 Execute: `python docs/11/scripts/secret_scan.py`
 

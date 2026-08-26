@@ -1,4 +1,4 @@
-# Solutions & Learning Guide (EN)
+﻿# Solutions & Learning Guide (EN)
 
 Summary answers to the **"Next Steps"** objectives of each module. Use to self-assess mastery.
 

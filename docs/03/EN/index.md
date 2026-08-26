@@ -69,7 +69,8 @@ Estimation = (3 + 4×5 + 10) / 6 = 5.5 days
 | Reports | 2 | 4 | 9 | 4.50 |
 | **Total** | | | | **12.17** |
 
-The script `docs/03/scripts/estimate.py` computes this reproducibly:
+!!! example "Reproducible script"
+    The script \$(System.Collections.Hashtable[1])\ computes this reproducibly.
 ```python
 def pert(o, r, p):
     return (o + 4 * r + p) / 6

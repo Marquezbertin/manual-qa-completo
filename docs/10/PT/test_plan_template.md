@@ -1,4 +1,4 @@
-# Módulo 10 — Templates
+﻿# Módulo 10 — Templates
 
 > Copie e adapte conforme seu projeto. Campos entre `[...]` devem ser preenchidos.
 

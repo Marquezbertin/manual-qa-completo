@@ -97,7 +97,8 @@ Exemplo com 10 tempos (ms): `100, 120, 130, 140, 150, 160, 170, 180, 190, 1000`
 - Média = 234 ms (distorcida pelo outlier)
 - **p95 = 1000 ms** (o pior caso domina) → investigar a cauda
 
-O script `docs/07/scripts/percentile.py` calcula isso de forma reproduzível:
+!!! example "Script reproduzível"
+    O script \$(System.Collections.Hashtable[1])\ calcula isso de forma reproduzível.
 ```python
 tempos = [100,120,130,140,150,160,170,180,190,1000]
 percentile(tempos, 95)   # 1000.0  (nearest-rank)

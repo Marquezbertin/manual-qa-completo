@@ -52,7 +52,8 @@ Defect Leakage = defeitos em prod / total = 10%
 | Cobertura | 48 req testadas / 50 | 96% |
 | MTTR | soma(horas correção) / nº defeitos | 4,5 h |
 
-O script `docs/09/scripts/kpi.py` calcula isso de forma reproduzível.
+!!! example "Script reproduzível"
+    O script \$(System.Collections.Hashtable[1])\ calcula isso de forma reproduzível.
 
 ## 9.4 Gestão de Riscos em QA
 

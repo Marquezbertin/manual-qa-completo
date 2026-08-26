@@ -1,4 +1,4 @@
-# Charter Template (Session-Based Test Management)
+﻿# Charter Template (Session-Based Test Management)
 
 ```
 Charter: [Explore X looking for Y]
