@@ -49,6 +49,35 @@ Areas: /forgot-password, email, SMS
 Duration: 60 min
 ```
 
+### 4.3.1 SBTM cycle and worked debrief
+
+```mermaid
+flowchart TD
+    C[Charter] --> T[Exploratory test 60-90min]
+    T --> O[Opportunities / Bugs / Notes]
+    O --> D[Debrief 10min]
+    D --> C
+```
+
+**Debrief example** (post-session):
+```
+Charter: Explore password recovery
+Time: 60 min | Tester: Ana
+Opportunities:
+  - SMS token expires in 60s (too short to type)
+  - No visible "resend" button
+Bug: BUG-205 (token expires early)
+Notes: works in Chrome, fails in Safari (timeout)
+```
+
+### 4.3.2 Test Tours (Cem Kaner)
+
+Exploration guided by mental "itineraries":
+- **Happy Path**: the main flow working
+- **Variable Tour**: vary each input (types, sizes, nulls)
+- **Interrupt Tour**: back, reload, tabs, lose focus
+- **Crime Tour**: break rules (SQL injection, XSS, boundaries)
+
 ## 4.4 Test Checklists (Heuristics)
 
 Practical checklist for web feature acceptance:
@@ -92,6 +121,19 @@ Priority: High
 Evidence: screenshot_error.png
 ```
 
+### 4.5.1 Severity × Priority Matrix
+
+Severity = business impact. Priority = fix urgency. **They are not the same**: a cosmetic bug on the payment screen may have low severity but high priority (brand image).
+
+| Severity \ Priority | Urgent | High | Medium | Low |
+|--------------------|--------|------|--------|-----|
+| **Critical** | P0: hours | P0: hours | P1: 1d | P1: 1d |
+| **High** | P1: 1d | P1: 1d | P2: 3d | P3: 1wk |
+| **Medium** | P2: 3d | P2: 3d | P3: 1wk | P4: backlog |
+| **Low** | P3: 1wk | P4: backlog | P4: backlog | P4: backlog |
+
+> Rule of thumb: Severity defines the **triage SLA**; Priority defines the **sprint order**. A reproducible helper is in `04/scripts/triage.py`.
+
 ## 4.6 Usability Testing and Nielsen Heuristics
 
 **Nielsen's 10 heuristics (1994)**:
@@ -126,4 +168,4 @@ At the end of this module, the reader should be able to:
 
 ---
 
-> **Next module**: [Module 05: Automated Testing](05/PT/indice.md)
+> **Next module**: [Module 05: Automated Testing](05/EN/index.md)

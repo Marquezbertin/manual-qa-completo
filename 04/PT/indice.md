@@ -49,6 +49,35 @@ Charter: Explorar o fluxo de recuperação de senha verificando mensagens de err
 Duração: 60 min
 ```
 
+### 4.3.1 Ciclo SBTM e Debrief trabalhado
+
+```mermaid
+flowchart TD
+    C[Charter] --> T[Teste exploratório 60-90min]
+    T --> O[Oportunidades / Bugs / Notas]
+    O --> D[Debrief 10min]
+    D --> C
+```
+
+**Exemplo de debrief** (pós-sessão):
+```
+Charter: Explorar recuperação de senha
+Tempo: 60 min | Tester: Ana
+Oportunidades:
+  - Token de SMS expira em 60s (pouco para digitar)
+  - Sem botão "reenviar" visível
+Bug: BUG-205 (token expira cedo)
+Notas: fluxo funciona em Chrome, falha em Safari (timeout)
+```
+
+### 4.3.2 Test Tours (Cem Kaner)
+
+Exploração guiada por "roteiros" mentais:
+- **Happy Path**: o fluxo principal funcionando
+- **Variable Tour**: variar cada entrada (tipos, tamanhos, nulos)
+- **Interrupt Tour**: clique em voltar, reload, abas, perder foco
+- **Crime Tour**: tentar quebrar regras (SQL injection, XSS, limites)
+
 ## 4.4 Checklists de Teste (Heurísticas)
 
 Checklist prático para homologação de uma feature web:
@@ -92,6 +121,19 @@ Prioridade: Alta
 Evidência: screenshot_erro.png
 ```
 
+### 4.5.1 Matriz Severidade × Prioridade
+
+Severidade = impacto no negócio. Prioridade = urgência de correção. **Não são a mesma coisa**: um bug cosmético em tela de pagamento pode ter baixa severidade mas alta prioridade (imagem da empresa).
+
+| Severidade \ Prioridade | Urgente | Alta | Média | Baixa |
+|------------------------|---------|------|-------|-------|
+| **Crítico** | P0: horas | P0: horas | P1: 1d | P1: 1d |
+| **Alto** | P1: 1d | P1: 1d | P2: 3d | P3: 1 sem |
+| **Médio** | P2: 3d | P2: 3d | P3: 1 sem | P4: backlog |
+| **Baixo** | P3: 1 sem | P4: backlog | P4: backlog | P4: backlog |
+
+> Regra prática: Severidade define o **SLA de triagem**; Prioridade define a **ordem no sprint**. Um helper reproduzível está em `04/scripts/triage.py`.
+
 ## 4.6 Testes de Usabilidade e Heurísticas de Nielsen
 
 As **10 heurísticas de Nielsen (1994)**:
@@ -126,4 +168,4 @@ Ao final deste módulo, o leitor deverá:
 
 ---
 
-> **Próximo módulo**: [Módulo 05: Testes Automatizados](05/PT/indice.md)
+> **Próximo módulo**: [Módulo 05: Testes Automatizados](05/EN/index.md)
