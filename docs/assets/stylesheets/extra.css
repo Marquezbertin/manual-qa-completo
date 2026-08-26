@@ -225,3 +225,30 @@
 .md-typeset .admonition.example > .admonition-title::before {
   background-color: #26a69a;
 }
+
+/* ---- Branded footer (author / certs / profile) ---- */
+.qa-footer-extra {
+  background: #151b6b;
+  color: #cfd8ff;
+  font-size: 0.8rem;
+  padding: 0.7rem 1rem;
+  text-align: center;
+}
+.qa-footer-extra__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+  align-items: center;
+}
+.qa-footer-extra a {
+  color: #80d8ff;
+  font-weight: 600;
+  text-decoration: none;
+}
+.qa-footer-extra a:hover {
+  text-decoration: underline;
+}
+.qa-sep {
+  opacity: 0.5;
+}
