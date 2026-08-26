@@ -37,15 +37,15 @@ First quality model, structured as a tree:
 
 ## 2.3 Testing Principles (ISTQB)
 
-**ISTQB Foundation Level** defines 7 fundamental principles:
+> The 7 principles are detailed in **Module 01 (section 1.4)**. Summarized here for reference in this fundamentals module:
 
-1. **Testing shows the presence of defects, not their absence** — testing reduces the probability of undetected defects, but does not prove the software is defect-free
-2. **Exhaustive testing is impossible** — instead of testing everything, use risk analysis and prioritization
-3. **Early testing** — the earlier a defect is found, the cheaper it is to fix (defect cost curve)
-4. **Defect clustering (Pareto)** — a small number of modules usually contain most of the defects
-5. **Pesticide paradox** — repeated tests become ineffective; they must be reviewed and varied
-6. **Testing is context dependent** — testing a critical system (medical) differs from testing a blog site
-7. **Absence-of-errors fallacy** — a system that is 99% bug-free but doesn't meet user needs is still a failure
+1. **Testing shows the presence of defects, not their absence**
+2. **Exhaustive testing is impossible** — use risk analysis to prioritize
+3. **Early testing** — the earlier a defect is found, the cheaper to fix
+4. **Defect clustering (Pareto)** — few modules hold most bugs
+5. **Pesticide paradox** — review and diversify test cases
+6. **Testing is context dependent** — medical ≠ blog
+7. **Absence-of-errors fallacy** — bug-free software can still fail the user
 
 ## 2.4 Test Levels
 
@@ -62,16 +62,27 @@ First quality model, structured as a tree:
 
 ## 2.5 V-Model
 
-The V-Model links each definition phase (left) to a test phase (right):
+The V-Model links each definition phase (left) to a test phase (right). Each specification level has its corresponding verification; the **early testing** principle is central here.
 
+```mermaid
+flowchart LR
+    subgraph E[Specification]
+      RU[User Requirements]
+      RS[System Requirements]
+      DA[Architecture Design]
+      DD[Detailed Design]
+    end
+    subgraph T[Test]
+      TA[Acceptance Test]
+      TS[System Test]
+      TI[Integration Test]
+      TU[Unit Test]
+    end
+    RU --- TA
+    RS --- TS
+    DA --- TI
+    DD --- TU
 ```
-User Requirements ───────────► Acceptance Test
-System Requirements ──────────► System Test
-Architecture Design ──────────► Integration Test
-Detailed Design ─────────────► Unit Test
-```
-
-Each specification level has its corresponding verification. The **early testing** principle is central here.
 
 ## 2.6 Risk-Based Testing
 
@@ -112,6 +123,24 @@ Tools: Jira + Xray, TestRail, Spreadsheets.
 | Maintainability | Mutation Testing, Reviews |
 | Portability | Installation/Migration Testing |
 
+### 2.8.1 Practical example: quality attribute scenario (SEI)
+
+Quality attributes (ISO 25010) are only useful if **measurable**. Use the *stimulus → response* format (SEI):
+
+**Performance Efficiency scenario**
+- **Source**: 500 concurrent users (Black Friday peak)
+- **Stimulus**: checkout request sent
+- **Environment**: production, 4 replicas
+- **Response**: 95% of requests answered in **< 800 ms**
+- **Measure**: p95 < 800 ms with error rate < 1% (see Module 07)
+
+**Reliability scenario**
+- **Stimulus**: 1 replica fails
+- **Response**: traffic rerouted, zero downtime
+- **Measure**: availability ≥ 99.9% (three nines)
+
+> Rule: every non-functional requirement must have a **number**; otherwise it's an opinion, not a requirement.
+
 ## 2.9 Test Lifecycle (ISTQB)
 
 1. **Planning and Control**
@@ -143,4 +172,4 @@ At the end of this module, the reader should be able to:
 
 ---
 
-> **Next module**: [Module 03: Test Planning](03/PT/indice.md)
+> **Next module**: [Module 03: Test Planning](03/EN/index.md)

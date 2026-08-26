@@ -37,15 +37,15 @@ Primeiro modelo de qualidade, estruturado como uma árvore:
 
 ## 2.3 Princípios de Teste (ISTQB)
 
-O **ISTQB Foundation Level** define 7 princípios fundamentais:
+> Os 7 princípios são detalhados no **Módulo 01 (seção 1.4)**. Aqui estão resumidos para referência neste módulo de fundamentos:
 
-1. **Teste demonstra a presença de defeitos, não sua ausência** — testar reduz a probabilidade de defeitos não detectados, mas não prova que o software está livre de defeitos
-2. **Teste exaustivo é impossível** — em vez de testar tudo, usar análise de risco e priorização
-3. **Teste antecipado** — quanto antes o defeito é encontrado, mais barato é corrigi-lo (modelo de custo de defeito)
-4. **Agrupamento de defeitos (Pareto)** — pequena quantidade de módulos costuma conter a maioria dos defeitos
-5. **Paradoxo do pesticida** — testes repetidos tornam-se ineficazes; é preciso revisá-los e variá-los
-6. **Teste depende do contexto** — testar um sistema crítico (medical) é diferente de testar um site de blogs
-7. **Ilusão da ausência de erro** — um sistema 99% livre de bugs mas que não atende ao que o usuário quer ainda é um fracasso
+1. **Teste demonstra a presença de defeitos, não sua ausência**
+2. **Teste exaustivo é impossível** — use análise de risco para priorizar
+3. **Teste antecipado** — quanto antes o defeito é encontrado, mais barato é corrigi-lo
+4. **Agrupamento de defeitos (Pareto)** — poucos módulos concentram a maioria dos bugs
+5. **Paradoxo do pesticida** — revisite e diversifique os casos de teste
+6. **Teste depende do contexto** — crítico (médico) ≠ blog
+7. **Ilusão da ausência de erros** — software sem bugs pode ainda não servir ao usuário
 
 ## 2.4 Níveis de Teste
 
@@ -62,16 +62,27 @@ O **ISTQB Foundation Level** define 7 princípios fundamentais:
 
 ## 2.5 Modelo V (V-Model)
 
-O V-Model liga cada fase de definição (esquerda) a uma fase de teste (direita):
+O V-Model liga cada fase de definição (esquerda) a uma fase de teste (direita). Cada nível de especificação tem seu correspondente de verificação; o **teste antecipado** é central aqui.
 
+```mermaid
+flowchart LR
+    subgraph E[Especificação]
+      RU[Requisitos de Usuário]
+      RS[Requisitos de Sistema]
+      DA[Design de Arquitetura]
+      DD[Design Detalhado]
+    end
+    subgraph T[Teste]
+      TA[Teste de Aceitação]
+      TS[Teste de Sistema]
+      TI[Teste de Integração]
+      TU[Teste de Unidade]
+    end
+    RU --- TA
+    RS --- TS
+    DA --- TI
+    DD --- TU
 ```
-Requisitos de Usuário ───────────► Teste de Aceitação
-Requisitos de Sistema ───────────► Teste de Sistema
-Design de Arquitetura ───────────► Teste de Integração
-Design Detalhado ────────────────► Teste de Unidade
-```
-
-Cada nível de especificação tem seu correspondente de verificação. O princípio do **teste antecipado** é central aqui.
 
 ## 2.6 Testes Baseados em Risco (Risk-Based Testing)
 
@@ -111,6 +122,24 @@ Ferramentas: Jira + Xray, TestRail, Planilhas.
 | Compatibilidade | Testes de Compatibilidade |
 | Manutenibilidade | Testes de Mutação, Revisões |
 | Portabilidade | Testes de Instalação/Migração |
+
+### 2.8.1 Exemplo prático: cenário de atributo de qualidade (SEI)
+
+Atributos de qualidade (ISO 25010) só são úteis se **mensuráveis**. Use o formato *estímulo → resposta* (SEI):
+
+**Cenário de Eficiência de Desempenho**
+- **Fonte**: 500 usuários simultâneos (pico de Black Friday)
+- **Estímulo**: envio de requisição de checkout
+- **Ambiente**: produção, 4 réplicas
+- **Resposta**: 95% das requisições respondem em **< 800 ms**
+- **Medida**: p95 < 800 ms com error rate < 1% (ver Módulo 07)
+
+**Cenário de Confiabilidade**
+- **Estímulo**: falha de 1 réplica
+- **Resposta**: traffico redirecionado, zero downtime
+- **Medida**: disponibilidade ≥ 99,9% (três noves)
+
+> Regra: todo requisito não funcional deve ter um **número**; senão, é opinião, não requisito.
 
 ## 2.9 O Ciclo de Vida de Teste (ISTQB)
 
