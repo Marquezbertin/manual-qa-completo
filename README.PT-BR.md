@@ -1,4 +1,4 @@
-# Manual Completo de QA
+﻿# Manual Completo de QA
 
 > **Um guia passo-a-passo da rotina de um Analista de Testes / QA**, com exemplos práticos, scripts reais, cenários de teste e modelos de documentos da indústria — em **Português (BR)** e **English**.
 
@@ -74,13 +74,13 @@ Scripts reais e **validados** ao longo do manual. Rode localmente:
 
 | Script | Módulo | Comando |
 |--------|--------|---------|
-| `03/scripts/estimate.py` | M03 — Estimativa PERT | `python 03/scripts/estimate.py` |
-| `04/scripts/triage.py` | M04 — Severidade×Prioridade (SLA) | `python 04/scripts/triage.py` |
-| `05/scripts/` | M05 — Login UI (Page Object) | `cd 05/scripts && pytest` |
-| `06/scripts/` | M06 — API REST local | `cd 06/scripts && pytest` |
-| `07/scripts/percentile.py` | M07 — p95/p99 | `python 07/scripts/percentile.py` |
-| `08/scripts/quality_gate.py` | M08 — Quality Gates | `python 08/scripts/quality_gate.py` |
-| `09/scripts/kpi.py` | M09 — KPIs de qualidade | `python 09/scripts/kpi.py` |
+| `docs/03/scripts/estimate.py` | M03 — Estimativa PERT | `python docs/03/scripts/estimate.py` |
+| `docs/04/scripts/triage.py` | M04 — Severidade×Prioridade (SLA) | `python docs/04/scripts/triage.py` |
+| `docs/05/scripts/` | M05 — Login UI (Page Object) | `cd docs/05/scripts && pytest` |
+| `docs/06/scripts/` | M06 — API REST local | `cd docs/06/scripts && pytest` |
+| `docs/07/scripts/percentile.py` | M07 — p95/p99 | `python docs/07/scripts/percentile.py` |
+| `docs/08/scripts/quality_gate.py` | M08 — Quality Gates | `python docs/08/scripts/quality_gate.py` |
+| `docs/09/scripts/kpi.py` | M09 — KPIs de qualidade | `python docs/09/scripts/kpi.py` |
 
 > **Status de verificação:** 9 testes pytest (M05: 6, M06: 3) + 7 scripts standalone, todos executados com sucesso na escrita deste manual.
 
@@ -96,22 +96,22 @@ cd manual-qa-completo
 
 ### 2. Scripts standalone (sem dependências externas)
 ```bash
-python 03/scripts/estimate.py
-python 04/scripts/triage.py
-python 07/scripts/percentile.py
-python 08/scripts/quality_gate.py
-python 09/scripts/kpi.py
+python docs/03/scripts/estimate.py
+python docs/04/scripts/triage.py
+python docs/07/scripts/percentile.py
+python docs/08/scripts/quality_gate.py
+python docs/09/scripts/kpi.py
 ```
 
 ### 3. Suítes pytest (automação e API)
 ```bash
 # M05 — precisa de Playwright + Chromium
-cd 05/scripts
+cd docs/05/scripts
 pip install playwright && playwright install chromium
 pytest
 
 # M06 — precisa de requests + jsonschema
-cd 06/scripts
+cd docs/06/scripts
 pip install requests jsonschema
 pytest
 ```
@@ -156,3 +156,4 @@ Este projeto está licenciado sob a licença **MIT**. Veja o arquivo [LICENSE](L
 ---
 
 **Desenvolvido por Bruno Bertin Marquez — Analista de QA, certificações ASTFC-AICS e SCRUM.**
+

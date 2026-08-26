@@ -1,4 +1,4 @@
-# run_all.py
+﻿# run_all.py
 """Executa todos os scripts standalone do manual de QA.
 
 Uso:
@@ -14,11 +14,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 
 STANDALONE = [
-    "03/scripts/estimate.py",
-    "04/scripts/triage.py",
-    "07/scripts/percentile.py",
-    "08/scripts/quality_gate.py",
-    "09/scripts/kpi.py",
+    "docs/03/scripts/estimate.py",
+    "docs/04/scripts/triage.py",
+    "docs/07/scripts/percentile.py",
+    "docs/08/scripts/quality_gate.py",
+    "docs/09/scripts/kpi.py",
 ]
 
 SUITES = [
@@ -53,3 +53,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
+
