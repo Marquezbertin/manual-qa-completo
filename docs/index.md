@@ -12,6 +12,14 @@
 
 Bem-vindo! Este manual reúne **11 módulos** em Português e Inglês. Cada card abaixo leva à versão desejada — use o seletor de idioma no topo para alternar entre PT e EN.
 
+## Como usar este manual
+
+- :material-account-group: **Público-alvo** — analistas de teste, QA e devs que buscam uma rotina prática e fundamentada.
+- :material-checkbox-marked-circle-outline: **Pré-requisitos** — Git, Python 3.11+ e (opcional) Node.js para os scripts de UI/API.
+- :material-console: **Scripts reais** — módulos com código trazem exemplos executáveis em `docs/<módulo>/scripts/`. Rode com `python docs/<módulo>/scripts/<arquivo>.py` ou `pytest`.
+- :material-translate: **Navegação** — menu lateral separa PT e EN; use o seletor de idioma no topo para alternar.
+- :material-lightbulb-on-outline: **Exercícios** — ao final de cada módulo, veja "Próximos Passos"; as respostas estão em `10/PT/solucoes.md` (PT) e `10/EN/solutions.md` (EN).
+
 <div class="grid cards" markdown>
 
 - :material-book-outline:{ .lg .middle } __M01 — Visão Geral__ — QA vs QC, 7 princípios ISTQB, Custo da Qualidade e STLC.  
