@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>Login Demo - manual-qa-completo</title>
+</head>
+<body>
+  <h1>Login</h1>
+  <form id="form-login" onsubmit="return false;">
+    <label>E-mail
+      <input data-testid="email" type="email" value="" />
+    </label>
+    <label>Senha
+      <input data-testid="senha" type="password" value="" />
+    </label>
+    <button data-testid="entrar" type="submit">Entrar</button>
+    <p data-testid="erro" class="erro" hidden>Usuário ou senha inválidos</p>
+    <p data-testid="dashboard" hidden>Bem-vindo ao dashboard!</p>
+  </form>
+  <script>
+    document.getElementById('form-login').addEventListener('submit', function () {
+      var email = document.querySelector('[data-testid=email]').value;
+      var senha = document.querySelector('[data-testid=senha]').value;
+      var ok = email === 'user@teste.com' && senha === 'Senha123';
+      document.querySelector('[data-testid=erro]').hidden = ok;
+      document.querySelector('[data-testid=dashboard]').hidden = !ok;
+    });
+  </script>
+</body>
+</html>
