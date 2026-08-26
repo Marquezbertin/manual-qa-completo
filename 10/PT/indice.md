@@ -21,6 +21,22 @@ Este módulo reúne **artefatos prontos para uso** em projetos reais de QA.
 3. Versione no repositório do projeto
 4. Adapte conforme a maturidade do time
 
+## 10.2.1 Central de Scripts Executáveis
+
+Scripts reais e verificados ao longo do manual (rode localmente):
+
+| Script | Módulo | Comando |
+|--------|--------|---------|
+| `05/scripts/` (login POM) | M05 | `cd 05/scripts && pytest` |
+| `06/scripts/` (API local) | M06 | `cd 06/scripts && pytest` |
+| `03/scripts/estimate.py` | M03 | `python 03/scripts/estimate.py` |
+| `04/scripts/triage.py` | M04 | `python 04/scripts/triage.py` |
+| `07/scripts/percentile.py` | M07 | `python 07/scripts/percentile.py` |
+| `08/scripts/quality_gate.py` | M08 | `python 08/scripts/quality_gate.py` |
+| `09/scripts/kpi.py` | M09 | `python 09/scripts/kpi.py` |
+
+> Todos foram executados e validados durante a escrita deste manual.
+
 ## 10.3 Apêndice: Stack Recomendada (Moderna)
 
 - **UI Automation**: Playwright + pytest
@@ -47,7 +63,22 @@ Referência contínua: M10 (templates)
 - **AWS/Azure** (cloud para performance/CI)
 - **Six Sigma** (processos)
 
-## 10.6 Citações e Referências
+## 10.6 Checklist do QA (Capstone)
+
+O que todo analista de QA deve dominar ao fim deste manual:
+
+- [ ] Explicar QA vs QC vs Teste e os 7 princípios (M01)
+- [ ] Aplicar ISO 25010 e atributos de qualidade mensuráveis (M02)
+- [ ] Escrever um Test Plan com critérios de saída (M03)
+- [ ] Redigir casos de teste, charters e bug reports (M04)
+- [ ] Automatizar UI com Page Objects (M05)
+- [ ] Testar APIs com validação de contrato (M06)
+- [ ] Interpretar p95/p99 e configurar carga (M07)
+- [ ] Montar um pipeline CI com quality gates (M08)
+- [ ] Calcular KPIs e aplicar Risk-Based Testing (M09)
+- [ ] Usar os templates deste módulo em projeto real
+
+## 10.7 Citações e Referências
 
 - **ISTQB®** — https://www.istqb.org/
 - **IEEE 829 (histórico)** — Test Documentation Standard
