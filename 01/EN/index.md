@@ -2,24 +2,24 @@
 
 ## 1.1 The QA Analyst Role
 
-The QA Analyst (Quality Assurance) is the professional responsible for ensuring software meets requirements and customer expectations, proactively—not just finding defects after development.
+The QA Analyst (Quality Assurance) is the professional responsible for ensuring software **meets** requirements and customer expectations, **proactively**—not just finding defects after development.
 
-### Main Responsibilities:
-- **Prevention**: Participate in requirements elaboration, documentation reviews, and test planning to prevent defects
-- **Detection**: Execute functional and non-functional tests to find defects before delivery
-- **Communication**: Act as the bridge between business, development, and stakeholders
-- **Continuous Improvement**: Identify defect patterns and suggest process improvements
+> **Note**: QA ≠ Testing. QA is the quality *assurance* process (focus on process); Testing is the technical *verification* activity (focus on product). See [1.3](#13-qa-vs-qc-vs-testing).
 
-### Recommended Profile:
+### Main Responsibilities
+- **Prevention**: participate in requirements elaboration, documentation reviews, and test planning to prevent defects
+- **Detection**: execute functional and non-functional tests to find defects before delivery
+- **Communication**: act as the bridge between business, development, and stakeholders
+- **Continuous Improvement**: identify defect patterns and propose process improvements
+
+### Recommended Profile
 - Critical and objective vision
-- Good communication skills
-- Curiosity to understand how the system works
+- Good written and verbal communication skills
+- Curiosity to understand *how* and *why* the system works
 - Organization and documentation ability
 - Empathy with end users and the development team
 
 ## 1.2 QA Scope of Work
-
-QA work covers various areas, classified as:
 
 ### Functional Testing
 - Unit, integration, system tests
@@ -27,110 +27,142 @@ QA work covers various areas, classified as:
 - Acceptance tests (UAT)
 
 ### Non-Functional Testing
-- **Performance**: load, stress, endurance testing
-- **Security**: vulnerability testing, basic penetration testing
-- **Usability**: testing with real users, heuristics
+- **Performance**: load, stress, endurance, spike
+- **Security**: vulnerabilities, penetration testing
+- **Usability**: real users, heuristics (Nielsen)
 - **Compatibility**: browsers, devices, operating systems
-- **Stability**: reliability, availability
+- **Reliability / Availability**
 
-### Additional Test Types
-- **Exploratory**: testing without predefined scripts, based on tester creativity
-- **Behavior Driven (BDD)**: tests based on user behavior, using Given/When/Then
-- **Alpha/Beta**: testing in controlled environments (alpha) or with real users (beta)
+### Other Test Types
+- **Exploratory**: without script, based on tester creativity (see Module 04)
+- **BDD**: user behavior via Given/When/Then (see Module 09)
+- **Alpha/Beta**: controlled environment (alpha) or real users (beta)
 
-## 1.3 Certifications and References
+## 1.3 QA vs QC vs Testing
 
-### International Certifications
-- **ISTQB Foundation Level**: the most recognized worldwide
-- **ASTFC-AICS**: Brazilian Software Testing Analyst certification
-- **CSQE**: Certified Software Quality Engineer (ASQ)
-- **CQT**: Certified Quality Tester
+Common confusion. Definitions (ISO 9000 / ISTQB):
 
-### Reference Standards
-- **IEEE 829**: testing documentation standard (replaced by newer standards)
-- **ISO 25010**: software quality model (replaces ISO 9126)
-- **ISO 9001**: quality management systems
-- **CMMI**: capability maturity model integration
+| Term | Focus | Question |
+|------|-------|----------|
+| **QA (Quality Assurance)** | Process | "Are we doing it right?" |
+| **QC (Quality Control)** | Product | "Is the product right?" |
+| **Testing** | Technical activity | "Where are the defects?" |
 
-### Brazilian References
-- **PROTESTE**: MCTI software quality program
-- **Q&A**: Brazilian quality community and events
+Summary: **QA** prevents, **QC** detects in the product, **Testing** is the technique used in QC.
 
-## 1.4 Development Methodologies
+## 1.4 The 7 Testing Principles (ISTQB)
 
-### Agile Methodologies
-- **Scrum**: roles (Product Owner, Scrum Master, Development Team), events (Splint, Daily, Review, Retrospective), artifacts (Product Backlog, Sprint Backlog, Increment)
-- **Kanban**: flow visualization, WIP limits, continuous delivery
-- **XP (Extreme Programming)**: pair programming, TDD, continuous integration
+These principles guide the whole profession:
 
-### Traditional Models
-- **Waterfall**: requirements defined upfront, sequential phases
-- **Spiral**: iterations with risk focus
-- **V-Model**: direct relationship between requirements and tests
+1. **Testing shows the presence of defects, not their absence** — we never prove software is bug-free.
+2. **Exhaustive testing is impossible** — use risk analysis to prioritize.
+3. **Early testing saves time and money** — the earlier a defect is found, the cheaper to fix (see Cost of Quality).
+4. **Defects cluster together** (*defect clustering*) — few modules hold most bugs.
+5. **Tests wear out** (*pesticide paradox*) — review and diversify test cases.
+6. **Testing is context dependent** — what works for medical software may not for e-commerce.
+7. **Absence-of-errors fallacy** — defect-free software can still fail to serve the user.
 
-## 1.6 QA Role in Different Methodologies
+## 1.5 Cost of Quality
 
-### In Scrum
-- Participate in Sprint Planning (test effort estimation)
-- Daily Standup (status and impediments sharing)
-- Sprint Review (demonstrate results to stakeholders)
-- Sprint Retrospective (improve process based on learnings)
+Splitting cost into 4 categories helps justify QA investment:
 
-### In Kanban
-- Visualize test flow on the Kanban board
-- Define WIP limits for tests
-- Measure lead time and cycle time of tests
-- Continuously improve the flow
+| Category | Example |
+|----------|---------|
+| **Prevention** | training, reviews, planning |
+| **Appraisal** | test execution, inspections |
+| **Internal failure** | bug found before delivery (rework) |
+| **External failure** | bug in production (SLA, recall, reputation) |
 
-### In Waterfall
-- Participate in requirements phase
-- Review test documents before execution
-- Execute tests in homologation environment
-- Deliver final reports to the client
+Golden rule: **investing in prevention reduces external failures**, the most expensive ones (sometimes 100× the cost of fixing at requirements stage).
 
-## 1.7 Common Tools
+## 1.6 Certifications and References
 
-### Test Management
-- **Jira** + **Xray** or **TestRail**
-- **Quality Center (ALM)** from Micro Focus
-- **TestLink**
+### International
+- **ISTQB Foundation Level** — most recognized worldwide
+- **ASTQB / ISTQB Advanced** (Test Manager, Test Analyst)
+- **CSQE** — Certified Software Quality Engineer (ASQ)
+- **CAST** — Certified Associate in Software Testing (QAI)
 
-### Automation
-- **Selenium** (WebDriver)
-- **Playwright** (recommended modern)
-- **Cypress** (front-end focused)
-- **Pytest** + **unittest** (Python)
-- **Jest** (JavaScript)
+### Standards
+- **IEEE 829** (historical) — test documentation
+- **ISO/IEC 25010** — product quality model (replaces ISO 9126)
+- **ISO 9001** — quality management systems
+- **CMMI** — process maturity
+- **ISO/IEC/IEEE 29119** — test processes
 
-### Reporting and Defects
-- **Allure** (beautiful and detailed reports)
-- **Jira** (defect management)
-- **GitLab Issues** / **GitHub Issues**
+### Brazil
+- **ASTFC-AICS** — Brazilian Software Testing Analyst certification
+- **PROTESTE / MCTI** — quality programs
+- Communities: **QAXperience**, **Jornada Ágil**, **TDC**
 
-## 1.8 Career and Salary Expectations
+## 1.7 Methodologies and the QA Role
 
-### Common Levels
-- **QA Trainee/Júnior**: 0 to 2 years experience, focus on test execution
-- **QA Pleno**: 2 to 5 years, basic automation, planning participation
-- **QA Senior**: 5+ years, automation leadership, strategy definition
-- **QA Lead / Manager**: team leadership, quality policy definition
+### Agile
+- **Scrum**: PO, Scrum Master, Dev Team. QA joins Planning (estimation), Daily, Review, Retro.
+- **Kanban**: WIP limits, lead/cycle time, continuous flow.
+- **XP**: pair programming, TDD, CI.
 
-### Salary Expectations (Brazil - 2024)
-- **Júnior**: R$ 3.000 a R$ 7.000
-- **Pleno**: R$ 7.000 a R$ 12.000
-- **Senior**: R$ 12.000 a R$ 20.000
-- **Lead/Manager**: R$ 20.000+
+### Traditional
+- **Waterfall**: sequential phases, testing at the end.
+- **V-Model**: each dev phase has a mirrored test phase.
+- **Spiral**: risk-oriented iterations.
 
-> *"QA is not a department, it's a mindset that should permeate the entire organization."* — *Unknown Author*
+```mermaid
+flowchart LR
+    A[Requirements] --> B[Design]
+    B --> C[Coding]
+    C --> D[Test]
+    D --> E[Deploy]
+    D -. defect .-> C
+```
 
-## 1.9 Next Steps
+## 1.8 Software Test Life Cycle (STLC)
+
+```mermaid
+flowchart TD
+    R[Requirements] --> PA[Analysis & Planning]
+    PA --> D[Test Design]
+    D --> E[Env/Data Setup]
+    E --> EX[Execution]
+    EX --> REP[Reporting & Closing]
+    EX -. bug .-> D
+```
+
+## 1.9 Common Tools
+
+- **Management**: Jira + Xray / TestRail / TestLink
+- **Automation**: Playwright (recommended), Cypress, Selenium, Pytest, Jest
+- **API**: Postman/Newman, requests, Schemathesis
+- **Performance**: k6, Locust, JMeter
+- **Reporting**: Allure, pytest-html
+
+## 1.10 Career and Compensation
+
+### Levels
+- **Junior (0–2y)**: test execution, manual
+- **Mid (2–5y)**: basic automation, planning
+- **Senior (5y+)**: technical leadership, strategy
+- **Lead/Manager**: quality policy, people management
+
+### Ranges (Brazil — 2025 reference, approximate)
+- Junior: R$ 3,500–R$ 7,000
+- Mid: R$ 7,000–R$ 13,000
+- Senior: R$ 13,000–R$ 22,000
+- Lead/Manager: R$ 20,000+
+
+> *Estimated and regional values; consult current salary surveys (Glassdoor, GeekHunter, Catho).*
+
+> *"Quality is never an accident. It is always the result of intelligent effort."* — **John Ruskin**
+
+## 1.11 Next Steps
 
 At the end of this module, the reader should be able to:
-1. Define the QA role in different development methodologies
-2. Identify which types of tests are most appropriate for each situation
-3. List the most relevant certifications and their benefits
-3. Understand how QA fits into the team and process
+1. Distinguish QA, QC, and Testing
+2. Explain the 7 ISTQB testing principles
+3. Apply the Cost of Quality concept
+4. Position QA in Scrum/Kanban/Waterfall
+5. Describe the STLC and its phases
 
 ---
 
-> **Next module**: [Module 02: Software Quality Fundamentals](02/PT/indice.md)
+> **Next module**: [Module 02: Software Quality Fundamentals](02/EN/index.md)
