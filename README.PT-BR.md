@@ -1,112 +1,145 @@
 # Manual Completo de QA
 
-> **Uma guia passo-a-passo da rotina de um Analista de Testes / QA**, com exemplos práticos, scripts reais, cenários de teste e modelos de documentos da indústria.
+> **Um guia passo-a-passo da rotina de um Analista de Testes / QA**, com exemplos práticos, scripts reais, cenários de teste e modelos de documentos da indústria — em **Português (BR)** e **English**.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](https://www.python.org/)
 [![Playwright](https://img.shields.io/badge/Playwright-1.40%2B-brightgreen)](https://playwright.dev/)
-[![Jest](https://img.shields.io/badge/Jest-29%2B-red)](https://jestjs.io/)
-[![Allure](https://img.shields.io/badge/Allure-Reports-41d6d6)](https://allurereport.org/)
+[![CI](https://github.com/Marquezbertin/manual-qa-completo/actions/workflows/ci.yml/badge.svg)](https://github.com/Marquezbertin/manual-qa-completo/actions/workflows/ci.yml)
 
 ---
 
-## 📖 **Sobre este Manual**
+## 📑 Índice
 
-Este repositório foi criado para servir como um **manual de referência** para Analistas de QA, cobrindo desde os fundamentos teóricos até a prática diária com ferramentas modernas. O conteúdo é dividido em módulos autônomos, com exemplos práticos, scripts testados e templates prontos.
+- [Sobre este Manual](#-sobre-este-manual)
+- [Estrutura do Repositório](#-estrutura-do-repositório)
+- [Hub de Scripts Executáveis](#-hub-de-scripts-executáveis)
+- [Como Executar](#-como-executar)
+- [Tecnologias](#-tecnologias)
+- [Licença](#-licença)
 
-### 🎯 **Objetivo**
-- Fornecer uma base de conhecimento organizada para QAs de todos os níveis
+---
+
+## 📖 Sobre este Manual
+
+Este repositório é um **manual de referência** para Analistas de QA, cobrindo desde os fundamentos teóricos até a prática diária com ferramentas modernas. O conteúdo é dividido em módulos autônomos, com exemplos práticos, **scripts testados e verificados**, e templates prontos para uso.
+
+### 🎯 Objetivo
+- Base de conhecimento organizada para QAs de todos os níveis
 - Documentar a rotina completa: do planejamento aos relatórios finais
-- Oferecer scripts e templates que podem ser usados imediatamente
-- Servir como material de estudo para certificações (ASTFC-AICS, ISTQB, SCRUM)
+- Oferecer scripts e templates usáveis imediatamente
+- Material de estudo para certificações (ISTQB, ASTFC-AICS, SCRUM)
 
-### 👤 **Público-alvo**
+### 👤 Público-alvo
 - Iniciantes em QA que querem aprender do zero
-- QAs experientes que querem reorganizar seu conhecimento
-- Estudantes de Ciência da Computação e cursos relacionados
-- Professionais que se preparam para certificações de qualidade
+- QAs experientes que querem reorganizar o conhecimento
+- Estudantes de Computação e cursos correlatos
+- Profissionais em preparação para certificações de qualidade
 
-### 🌐 **Idiomas**
-Este manual está disponível em duas versões:
-- **Português (BR)**: Foco no mercado nacional, certificações ASTFC-AICS, legislação e boas práticas locais
-- **English**: Termos internacionais (ISTQB), práticas globais e English técnico
+### 🌐 Idiomas
+- **Português (BR)** — foco no mercado nacional e certificações locais (`*/PT/`)
+- **English** — termos internacionais (ISTQB) e práticas globais (`*/EN/`)
 
 ---
 
-## 📁 **Estrutura do Repositório**
+## 📁 Estrutura do Repositório
 
-O manual é organizado em 10 módulos, cada um focado em um aspecto da rotina de QA:
+10 módulos, cada um com versão PT e EN. A coluna **Scripts** indica módulos que trazem código executável verificado.
 
-| Módulo | Título | Conteúdo Principal |
-|--------|--------|-------------------|
-| `01` | Visão Geral do QA | Papel do QA, certificações, carreiras |
-| `02` | Fundamentais da Qualidade | ISTQB, modelos de qualidade, V-model, Agile/Scrum/Kanban |
-| `03` | Planejamento de Testes | Policy/Strategy/Plan, estimativa 3 pontos, ambientes, critérios de saída |
-| `04` | Testes Manuais e Exploratórios | Casos de teste, SBTM, checklists, bug reports, heurísticas de Nielsen |
-| `05` | Testes Automatizados | Pirâmide de teste, Page Objects, Playwright + Pytest |
-| `06` | Testes de API | Verbos HTTP, requests + Pytest, schema (Pydantic), Schemathesis |
-| `07` | Performance e Carga | Locust, k6, load/stress/spike, análise de resultados |
-| `08` | Qualidade de Código e CI/CD | Coverage, lint, quality gates, SAST, GitHub Actions |
-| `09` | Gestão de Qualidade e Processos | TMMi, ISO 25010, KPIs, Risk-Based Testing, BDD |
-| `10` | Templates e Apêndices | Test Plan, Bug Report, Test Case, Charter, Matriz, Glossário |
+| Módulo | Título | Conteúdo Principal | Scripts |
+|--------|--------|-------------------|---------|
+| `01` | Visão Geral do QA | QA vs QC, 7 princípios ISTQB, Custo da Qualidade, STLC | — |
+| `02` | Fundamentais da Qualidade | ISO 25010, V-Model, atributos de qualidade mensuráveis | — |
+| `03` | Planejamento de Testes | Policy/Strategy/Plan, estimativa PERT, mini Test Plan | `estimate.py` ✅ |
+| `04` | Testes Manuais e Exploratórios | Casos de teste, SBTM, Severidade×Prioridade, Nielsen | `triage.py` ✅ |
+| `05` | Testes Automatizados | Pirâmide, Page Objects, Playwright + Pytest | suíte pytest ✅ |
+| `06` | Testes de API | Verbos HTTP, requests, validação de contrato (jsonschema) | suíte pytest ✅ |
+| `07` | Performance e Carga | Locust/k6, percentis p95/p99, análise | `percentile.py` ✅ |
+| `08` | Qualidade de Código e CI/CD | Cobertura, lint, quality gates, SAST, GitHub Actions | `quality_gate.py` ✅ |
+| `09` | Gestão de Qualidade e Processos | TMMi, ISO 25010, KPIs, Risk-Based Testing, PDCA | `kpi.py` ✅ |
+| `10` | Templates e Apêndices | Test Plan, Bug Report, Test Case, Charter, Matriz, Glossário | — |
 
 Cada módulo contém:
-- **PT/**: Versão em Português do Brasil
-- **EN/**: Versão em English (International)
-- Exemplos de código reais
-- Templates baixáveis
+- **PT/** e **EN/** — versões em português e inglês
+- Exemplos de código reais e verificados
+- Templates prontos para download
 - Citações técnicas com referências
 
 ---
 
-## 🚀 **Primeiros Passos**
+## 🚀 Hub de Scripts Executáveis
 
-### 1. Clone este repositório
+Scripts reais e **validados** ao longo do manual. Rode localmente:
+
+| Script | Módulo | Comando |
+|--------|--------|---------|
+| `03/scripts/estimate.py` | M03 — Estimativa PERT | `python 03/scripts/estimate.py` |
+| `04/scripts/triage.py` | M04 — Severidade×Prioridade (SLA) | `python 04/scripts/triage.py` |
+| `05/scripts/` | M05 — Login UI (Page Object) | `cd 05/scripts && pytest` |
+| `06/scripts/` | M06 — API REST local | `cd 06/scripts && pytest` |
+| `07/scripts/percentile.py` | M07 — p95/p99 | `python 07/scripts/percentile.py` |
+| `08/scripts/quality_gate.py` | M08 — Quality Gates | `python 08/scripts/quality_gate.py` |
+| `09/scripts/kpi.py` | M09 — KPIs de qualidade | `python 09/scripts/kpi.py` |
+
+> **Status de verificação:** 9 testes pytest (M05: 6, M06: 3) + 7 scripts standalone, todos executados com sucesso na escrita deste manual.
+
+---
+
+## 🛠️ Como Executar
+
+### 1. Clone
 ```bash
 git clone https://github.com/Marquezbertin/manual-qa-completo.git
 cd manual-qa-completo
 ```
 
-### 2. Instale as dependências
+### 2. Scripts standalone (sem dependências externas)
 ```bash
-python -m venv venv
-.\venv\Scripts\activate  # Windows
-source venv/bin/activate   # Linux/Mac
-pip install -r requirements.txt
+python 03/scripts/estimate.py
+python 04/scripts/triage.py
+python 07/scripts/percentile.py
+python 08/scripts/quality_gate.py
+python 09/scripts/kpi.py
 ```
 
-### 3. Execute o pipeline de CI (GitHub Actions)
+### 3. Suítes pytest (automação e API)
 ```bash
-# O pipeline roda automaticamente em cada push/PR
-# Ele executa os testes e gera relatórios Allure
+# M05 — precisa de Playwright + Chromium
+cd 05/scripts
+pip install playwright && playwright install chromium
+pytest
+
+# M06 — precisa de requests + jsonschema
+cd 06/scripts
+pip install requests jsonschema
+pytest
 ```
 
-### 4. Explore os módulos
-Navegue pelas pastas `01/` a `10/` e escolha o módulo que deseja estudar primeiro.
+### 4. CI (GitHub Actions)
+O pipeline em `.github/workflows/ci.yml` roda automaticamente em cada push/PR, executando os testes da raiz e validando a integridade do manual.
 
 ---
 
-## 🛠️ **Tecnologias Utilizadas**
+## 🧰 Tecnologias
 
-- **Python 3.10+** - Linguagem principal para scripts e automação
-- **Playwright** - Testes de interface (UI) modernos e estáveis
-- **Pytest** - Framework de testes unitários e de aceitação
-- **Allure** - Geração de relatórios detalhados
-- **Jest** - Para exemplos de testes JavaScript (art-of-software-testing)
-- **Git & GitHub Actions** - Integração contínua e entrega
-- **Faker** - Geração de dados de teste realistas (pt-BR e en-US)
-- **JSON Schema** - Validação de respostas de API
-
----
-
-## 📜 **Licença**
-
-Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+- **Python 3.10+** — linguagem principal dos scripts
+- **Playwright + pytest** — testes de UI modernos e estáveis
+- **requests + jsonschema** — testes de API e validação de contrato
+- **k6 / Locust** — testes de performance e carga
+- **GitHub Actions** — integração contínua
+- **Faker** — geração de dados de teste (pt-BR / en-US)
+- **ruff, black, bandit, pytest-cov** — qualidade de código e cobertura
 
 ---
 
-> *"Quality is never an accident. It is always the result of intelligent effort." - John Ruskin*
+## 📜 Licença
+
+Este projeto está licenciado sob a licença **MIT**. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ---
 
-**Desenvolvido por Bruno Bertin Marquez – Analista de QA, certificações ASTFC-AICS e SCRUM.**
+> *"Quality is never an accident. It is always the result of intelligent effort."* — **John Ruskin**
+
+---
+
+**Desenvolvido por Bruno Bertin Marquez — Analista de QA, certificações ASTFC-AICS e SCRUM.**
