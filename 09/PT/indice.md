@@ -9,6 +9,14 @@
 | **ISO/IEC 25010** | Qualidade de produto (modelo de qualidade) |
 | **ISO 9001** | Gestão da qualidade organizacional |
 
+### 9.1.1 Níveis TMMi (Test Maturity Model integration)
+
+1. **Nível 1 — Inicial**: testes ad-hoc, caóticos
+2. **Nível 2 — Gerenciado**: testes definidos por fase, ambiente gerenciado
+3. **Nível 3 — Definido**: processo de teste padronizado e integrado ao ciclo
+4. **Nível 4 — Medido e Gerenciado**: métricas e qualidade quantificadas
+5. **Nível 5 — Otimizado**: melhoria contínua baseada em dados
+
 ## 9.2 ISO/IEC 25010 — Modelo de Qualidade
 
 8 características:
@@ -35,16 +43,37 @@ Defect Density = 5 defeitos / 1000 LOC = 0,005
 Defect Leakage = defeitos em prod / total = 10%
 ```
 
+### 9.3.1 Exemplo trabalhado de KPIs
+
+| Métrica | Fórmula | Valor (release X) |
+|---------|---------|------------------|
+| Defect Density | 12 defeitos / 2 KLOC | 6,0 / KLOC |
+| Defect Leakage | 2 em prod / 20 total | 10% |
+| Cobertura | 48 req testadas / 50 | 96% |
+| MTTR | soma(horas correção) / nº defeitos | 4,5 h |
+
+O script `09/scripts/kpi.py` calcula isso de forma reproduzível.
+
 ## 9.4 Gestão de Riscos em QA
 
 Identificar riscos e priorizar testes:
 - **Probabilidade × Impacto** → matriz de risco
 - Testes priorizados por risco (Risk-Based Testing)
 
-| Impacto \ Prob. | Baixa | Alta |
-|-----------------|-------|------|
-| Alto | Médio | **Alto** |
-| Baixo | Baixo | Médio |
+| Impacto \ Prob. | Baixa | Média | Alta |
+|-----------------|-------|-------|------|
+| **Alto** | Médio | Alto | **Crítico** |
+| **Médio** | Baixo | Médio | Alto |
+| **Baixo** | Baixo | Baixo | Médio |
+
+```mermaid
+flowchart TD
+    R[Risco identificado] --> P[Probabilidade]
+    R --> I[Impacto]
+    P --> M[Matriz 3x3]
+    I --> M
+    M --> T[Priorizar testes no quadrante Critico/Alto]
+```
 
 ## 9.5 Processos Ágeis e QA
 
@@ -73,6 +102,14 @@ Feature: Login
 - **Blameless post-mortem** para incidentes
 - **Continuous Improvement** (PDCA)
 
+```mermaid
+flowchart TD
+    P[Plan: objetivo e métricas] --> D[Do: executar mudança piloto]
+    D --> C[Check: medir resultado]
+    C --> A[Act: padronizar ou ajustar]
+    A --> P
+```
+
 ## 9.8 Citações e Referências
 
 - **ISO/IEC 25010 (2023)** — System/Software Quality Model
@@ -93,4 +130,4 @@ Ao final deste módulo, o leitor deverá:
 
 ---
 
-> **Próximo módulo**: [Módulo 10: Templates e Apêndices](10/PT/indice.md)
+> **Próximo módulo**: [Módulo 10: Templates e Apêndices](10/EN/index.md)

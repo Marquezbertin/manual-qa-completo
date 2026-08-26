@@ -9,6 +9,14 @@
 | **ISO/IEC 25010** | Product quality (quality model) |
 | **ISO 9001** | Organizational quality management |
 
+### 9.1.1 TMMi Levels (Test Maturity Model integration)
+
+1. **Level 1 — Initial**: ad-hoc, chaotic testing
+2. **Level 2 — Managed**: phase-defined testing, managed environment
+3. **Level 3 — Defined**: standardized test process integrated into the lifecycle
+4. **Level 4 — Measured & Managed**: quantified quality metrics
+5. **Level 5 — Optimized**: data-driven continuous improvement
+
 ## 9.2 ISO/IEC 25010 — Quality Model
 
 8 characteristics:
@@ -35,16 +43,37 @@ Defect Density = 5 defects / 1000 LOC = 0.005
 Defect Leakage = prod defects / total = 10%
 ```
 
+### 9.3.1 Worked KPI example
+
+| Metric | Formula | Value (release X) |
+|--------|---------|------------------|
+| Defect Density | 12 defects / 2 KLOC | 6.0 / KLOC |
+| Defect Leakage | 2 in prod / 20 total | 10% |
+| Coverage | 48 req tested / 50 | 96% |
+| MTTR | sum(fix hours) / #defects | 4.5 h |
+
+The script `09/scripts/kpi.py` computes this reproducibly.
+
 ## 9.4 QA Risk Management
 
 Identify risks and prioritize tests:
 - **Probability × Impact** → risk matrix
 - Risk-Based Testing (prioritize by risk)
 
-| Impact \ Prob. | Low | High |
-|----------------|-----|------|
-| High | Medium | **High** |
-| Low | Low | Medium |
+| Impact \ Prob. | Low | Medium | High |
+|----------------|-----|--------|------|
+| **High** | Medium | High | **Critical** |
+| **Medium** | Low | Medium | High |
+| **Low** | Low | Low | Medium |
+
+```mermaid
+flowchart TD
+    R[Risk identified] --> P[Probability]
+    R --> I[Impact]
+    P --> M[3x3 Matrix]
+    I --> M
+    M --> T[Prioritize tests in Critical/High quadrant]
+```
 
 ## 9.5 Agile Processes and QA
 
@@ -73,6 +102,14 @@ Feature: Login
 - **Blameless post-mortem** for incidents
 - **Continuous Improvement** (PDCA)
 
+```mermaid
+flowchart TD
+    P[Plan: goal and metrics] --> D[Do: pilot the change]
+    D --> C[Check: measure result]
+    C --> A[Act: standardize or adjust]
+    A --> P
+```
+
 ## 9.8 Citations and References
 
 - **ISO/IEC 25010 (2023)** — System/Software Quality Model
@@ -93,4 +130,4 @@ At the end of this module, the reader should be able to:
 
 ---
 
-> **Next module**: [Module 10: Templates and Appendices](10/PT/indice.md)
+> **Next module**: [Module 10: Templates and Appendices](10/EN/index.md)
