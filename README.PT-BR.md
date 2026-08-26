@@ -44,7 +44,7 @@ Este repositório é um **manual de referência** para Analistas de QA, cobrindo
 
 ## 📁 Estrutura do Repositório
 
-10 módulos, cada um com versão PT e EN. A coluna **Scripts** indica módulos que trazem código executável verificado.
+11 módulos, cada um com versão PT e EN. A coluna **Scripts** indica módulos que trazem código executável verificado.
 
 | Módulo | Título | Conteúdo Principal | Scripts |
 |--------|--------|-------------------|---------|
@@ -58,6 +58,7 @@ Este repositório é um **manual de referência** para Analistas de QA, cobrindo
 | `08` | Qualidade de Código e CI/CD | Cobertura, lint, quality gates, SAST, GitHub Actions | `quality_gate.py` ✅ |
 | `09` | Gestão de Qualidade e Processos | TMMi, ISO 25010, KPIs, Risk-Based Testing, PDCA | `kpi.py` ✅ |
 | `10` | Templates e Apêndices | Test Plan, Bug Report, Test Case, Charter, Matriz, Glossário | — |
+| `11` | Testes de Segurança (OWASP) | OWASP Top 10, SAST/DAST, secret scan | `secret_scan.py` ✅ |
 
 Cada módulo contém:
 - **PT/** e **EN/** — versões em português e inglês

@@ -8,7 +8,7 @@ import os
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-MODULES = [f"{n:02d}" for n in range(1, 11)]
+MODULES = [f"{n:02d}" for n in range(1, 12)]
 
 
 def test_all_modules_have_pt_and_en():
