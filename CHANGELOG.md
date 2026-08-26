@@ -27,3 +27,7 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/).
 - Os módulos 01, 02, 10 são teóricos/práticos sem scripts (templates/solucoes).
 - Validação local: 9 testes pytest (M05: 6, M06: 3) + 7 scripts standalone, todos executados com sucesso.
 
+### Alterado (pós-release)
+- Conteúdo movido para `docs/` (MkDocs rejeita `docs_dir: .`); site publicado em GitHub Pages.
+- `mkdocs.yml` usa `docs_dir: docs`; README e links de módulos atualizados para `docs/...` / `../`.
+
