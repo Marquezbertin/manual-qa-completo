@@ -39,16 +39,16 @@ O manual é organizado em 10 módulos, cada um focado em um aspecto da rotina de
 
 | Módulo | Título | Conteúdo Principal |
 |--------|--------|-------------------|
-| `01` | Visão Geral | Papel do QA, certificações, carreiras |
-| `02` | Fundamentais | ISTQB, modelos de qualidade, V-model, Agile/Scrum/Kanban |
-| `03` | Planejamento | Test strategy, traceability matrix, risk-based testing |
-| `04` | Testes Manuais | Charters, checklists, relatórios de teste, bug reports |
-| `05` | Testes Automatizados | Frameworks, Page Objects, scripts reais com Python |
-| `06` | API Testing | Rest-Assured/Pytest, schema validation, exemplos reais |
-| `07` | Performance | Noções de load testing, k6 / Locust básicos |
-| `08` | Relatórios | Allure, HTML reports, métricas de qualidade |
-| `08` | Ferramentas | Postman, Jira, Git, TestRun, etc. |
-| `10` | Recursos | Templates de test plan, bug report, test charter |
+| `01` | Visão Geral do QA | Papel do QA, certificações, carreiras |
+| `02` | Fundamentais da Qualidade | ISTQB, modelos de qualidade, V-model, Agile/Scrum/Kanban |
+| `03` | Planejamento de Testes | Policy/Strategy/Plan, estimativa 3 pontos, ambientes, critérios de saída |
+| `04` | Testes Manuais e Exploratórios | Casos de teste, SBTM, checklists, bug reports, heurísticas de Nielsen |
+| `05` | Testes Automatizados | Pirâmide de teste, Page Objects, Playwright + Pytest |
+| `06` | Testes de API | Verbos HTTP, requests + Pytest, schema (Pydantic), Schemathesis |
+| `07` | Performance e Carga | Locust, k6, load/stress/spike, análise de resultados |
+| `08` | Qualidade de Código e CI/CD | Coverage, lint, quality gates, SAST, GitHub Actions |
+| `09` | Gestão de Qualidade e Processos | TMMi, ISO 25010, KPIs, Risk-Based Testing, BDD |
+| `10` | Templates e Apêndices | Test Plan, Bug Report, Test Case, Charter, Matriz, Glossário |
 
 Cada módulo contém:
 - **PT/**: Versão em Português do Brasil

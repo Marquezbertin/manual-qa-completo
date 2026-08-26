@@ -39,15 +39,16 @@ The manual is organized into 10 modules, each focusing on a different aspect of 
 
 | Module | Title | Main Content |
 |--------|-------|--------------|
-| `01` | Overview | QA role, certifications, careers |
-| `02` | Fundamentals | ISTQB, quality models, V-model, Agile/Scrum/Kanban |
-| `03` | Planning | Test strategy, traceability matrix, risk-based testing |
-| `04` | Manual Testing | Charters, checklists, test reports, bug reports |
-| `05` | Automated Testing | Frameworks, Page Objects, real Python scripts |
-| `06` | API Testing | Rest-Assured/Pytest, schema validation, real examples |
-| `08` | Performance | Basic load testing concepts, k6 / Locust |
-| `08` | Tools | Postman, Jira, Git, TestRun, etc. |
-| `10` | Resources | Test plan templates, bug reports, test charters |
+| `01` | QA Overview | QA role, certifications, careers |
+| `02` | Quality Fundamentals | ISTQB, quality models, V-model, Agile/Scrum/Kanban |
+| `03` | Test Planning | Policy/Strategy/Plan, 3-point estimate, environments, exit criteria |
+| `04` | Manual & Exploratory Testing | Test cases, SBTM, checklists, bug reports, Nielsen heuristics |
+| `05` | Automated Testing | Test pyramid, Page Objects, Playwright + Pytest |
+| `06` | API Testing | HTTP verbs, requests + Pytest, schema (Pydantic), Schemathesis |
+| `07` | Performance & Load | Locust, k6, load/stress/spike, result analysis |
+| `08` | Code Quality & CI/CD | Coverage, lint, quality gates, SAST, GitHub Actions |
+| `09` | Quality Management & Processes | TMMi, ISO 25010, KPIs, Risk-Based Testing, BDD |
+| `10` | Templates & Appendices | Test Plan, Bug Report, Test Case, Charter, Matrix, Glossary |
 
 Each module contains:
 - **PT/**: Portuguese (Brazil) version
