@@ -67,3 +67,29 @@ Bem-vindo! Este manual reúne **11 módulos** em Português e Inglês. Cada card
   [:octicons-arrow-right-24: PT](11/PT/indice/) · [:octicons-arrow-right-24: EN](11/EN/index/)
 
 </div>
+
+## Trilha de maturidade em QA
+
+Uma sugestão de sequência de aprendizado, do Júnior ao Sênior, conectando os módulos:
+
+```mermaid
+graph LR
+  subgraph J[Júnior]
+    A[M01 Visão Geral]
+    B[M02 Fundamentais]
+    C[M04 Manuais e Exploratórios]
+    D[M10 Templates]
+  end
+  subgraph P[Pleno]
+    E[M03 Planejamento]
+    F[M05 Automatizados]
+    G[M06 API Testing]
+    H[M09 Gestão e Processos]
+  end
+  subgraph S[Sênior]
+    I[M07 Performance]
+    J2[M08 Qualidade e CI/CD]
+    K[M11 Segurança OWASP]
+  end
+  J --> P --> S
+```
