@@ -30,4 +30,6 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/).
 ### Alterado (pós-release)
 - Conteúdo movido para `docs/` (MkDocs rejeita `docs_dir: .`); site publicado em GitHub Pages.
 - `mkdocs.yml` usa `docs_dir: docs`; README e links de módulos atualizados para `docs/...` / `../`.
+- Layout: cards de módulos na home, seletor PT/EN, footer de marca, callout `example`, roadmap Mermaid.
+- `md_in_html` adicionado para renderizar o grid de cards; footer via JS (sem override de template).
 
