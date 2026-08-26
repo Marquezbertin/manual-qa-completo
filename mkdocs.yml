@@ -9,7 +9,6 @@ edit_uri: edit/master/docs/
 
 theme:
   name: material
-  custom_dir: docs/overrides
   logo: assets/logo.svg
   favicon: assets/favicon.svg
   palette:
@@ -49,6 +48,7 @@ extra_css:
   - assets/stylesheets/extra.css
 extra_javascript:
   - assets/javascripts/lang-switch.js
+  - assets/javascripts/footer-credits.js
 nav:
   - Home: index.md
   - "Módulos (PT)":
