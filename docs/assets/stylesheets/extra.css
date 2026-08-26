@@ -1,0 +1,166 @@
+/* ===========================================================
+   Manual Completo de QA — custom theme polish
+   =========================================================== */
+
+/* ---- Typography & reading comfort ---- */
+.md-typeset {
+  font-size: 0.8rem;
+  line-height: 1.7;
+}
+.md-typeset h1,
+.md-typeset h2 {
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.md-typeset h2 {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding-bottom: 0.3em;
+  margin-bottom: 0.8em;
+}
+[data-md-color-scheme="slate"] .md-typeset h2 {
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+.md-typeset a {
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+.md-typeset a:hover {
+  border-bottom-color: var(--md-accent-fg-color);
+}
+
+/* ---- Top app bar ---- */
+.md-header {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+.md-header__title {
+  font-weight: 700;
+}
+
+/* ---- Hero banner (home only) ---- */
+.hero {
+  position: relative;
+  margin: -1.6rem -1.6rem 1.8rem;
+  padding: 3.2rem 1.6rem 2.6rem;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(135deg, #283593 0%, #3949ab 45%, #00b8d4 100%);
+  border-radius: 0 0 1.2rem 1.2rem;
+  box-shadow: 0 12px 30px rgba(40, 53, 147, 0.25);
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px);
+  background-size: 18px 18px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+.hero h1 {
+  color: #fff;
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin: 0 0 0.4rem;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
+.hero p {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 1.05rem;
+  max-width: 42rem;
+  margin: 0.3rem auto;
+}
+.hero .hero-links {
+  margin-top: 1.2rem;
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.hero .hero-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  font-weight: 600;
+  transition: background 0.2s, transform 0.2s;
+}
+.hero .hero-links a:hover {
+  background: rgba(255, 255, 255, 0.28);
+  transform: translateY(-1px);
+  border-bottom-color: transparent;
+}
+
+/* ---- Admonitions (modern cards) ---- */
+.md-typeset .admonition {
+  border-radius: 0.6rem;
+  border-left-width: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+.md-typeset .admonition > .admonition-title {
+  font-weight: 600;
+}
+.md-typeset .admonition .admonition-title::before {
+  font-size: 1rem;
+}
+
+/* ---- Tables ---- */
+.md-typeset table:not([class]) {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+.md-typeset table:not([class]) th {
+  background: var(--md-primary-fg-color);
+  color: #fff;
+  font-weight: 700;
+}
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+.md-typeset table:not([class]) tr:hover td {
+  background: rgba(0, 184, 212, 0.08);
+}
+
+/* ---- Code blocks ---- */
+.md-typeset pre {
+  border-radius: 0.6rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+.md-typeset code {
+  border-radius: 0.3rem;
+}
+
+/* ---- Blockquotes ---- */
+.md-typeset blockquote {
+  border-left: 4px solid var(--md-accent-fg-color);
+  background: rgba(0, 184, 212, 0.06);
+  border-radius: 0 0.5rem 0.5rem 0;
+  padding: 0.4rem 1rem;
+  color: var(--md-default-fg-color);
+}
+
+/* ---- Footer ---- */
+.md-footer {
+  background: #1a237e;
+}
+.md-footer-meta {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* ---- Tabs ---- */
+.md-typeset .tabbed-set > input:checked + label {
+  color: var(--md-accent-fg-color);
+  border-color: var(--md-accent-fg-color);
+}
+
+/* ---- Smooth nav active item ---- */
+.md-nav__item--active > .md-nav__link {
+  color: var(--md-accent-fg-color);
+  font-weight: 600;
+}

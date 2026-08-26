@@ -1,25 +1,50 @@
 site_name: Manual Completo de QA
 site_url: https://marquezbertin.github.io/manual-qa-completo/
 site_description: Guia passo-a-passo de QA com scripts reais (PT/EN)
+site_author: Bruno Bertin Marquez
+copyright: Copyright &copy; 2026 Bruno Bertin Marquez &mdash; MIT License
+repo_url: https://github.com/Marquezbertin/manual-qa-completo
+repo_name: Marquezbertin/manual-qa-completo
+edit_uri: edit/master/docs/
+
 theme:
   name: material
+  logo: assets/logo.svg
+  favicon: assets/favicon.svg
   palette:
     - scheme: default
       primary: indigo
+      accent: cyan
       toggle:
         icon: material/weather-night
         name: Mudar para dark
     - scheme: slate
       primary: indigo
+      accent: cyan
       toggle:
         icon: material/weather-sunny
         name: Mudar para light
+  font:
+    text: Inter
+    code: Fira Code
   features:
     - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - navigation.path
+    - navigation.footer
+    - toc.follow
+    - toc.integrate
+    - search.suggest
+    - search.highlight
     - content.code.copy
-repo_url: https://github.com/Marquezbertin/manual-qa-completo
+    - content.code.annotate
+    - content.action.edit
+
 docs_dir: docs
 site_dir: site
+extra_css:
+  - assets/stylesheets/extra.css
 nav:
   - Home: index.md
   - "Módulos (PT)":
@@ -48,7 +73,17 @@ nav:
     - "11 — Security (OWASP)": 11/EN/index.md
 markdown_extensions:
   - admonition
+  - pymdownx.details
+  - pymdownx.mark
   - pymdownx.superfences
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
   - toc:
       permalink: true
